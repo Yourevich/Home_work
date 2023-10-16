@@ -2,7 +2,7 @@ import UIKit
 
 //MARK: - Type casting
 
-//Upcasting. Приведение к базовуму классу
+//MARK: Upcasting. Приведение к базовуму классу
 
 class SnowRider {
     
@@ -32,7 +32,7 @@ print(juniorRider.name)
 //Создали инстанс подкласса и далее сохранили его в константу juniorRider, которая в свою очередь типа суперкласса. Теперь мы можем использовать его как объект класса SnowRider. Не до конца понял какие практические плюсы из этого вытекают
 
 
-//DownCasting. Приведение к подклассу
+//MARK: DownCasting. Приведение к подклассу
 
 if let juniorRiderStyle = juniorRider as? SnowStyle {
     // Если downcasting прошел успешно, мы можем использовать juniorRiderStyle как объект SnowStyle
@@ -51,5 +51,33 @@ let proRiderStyle = proRider as! SnowStyle
 print(proRiderStyle.style)
 
 
+//  MARK: Проверка типа
 
+let riders = [
+    SnowStyle(name: "Jake", style: "Jibbing"),
+    SnowRider(name: "Eric"),
+    SnowStyle(name: "Sara", style: "Freeride"),
+    SnowRider(name: "Ken")
+    
+]
+
+var snowRiderCount = 0
+var snowStyleCount = 0
+
+
+for rider in riders {
+    
+    if rider is SnowStyle {
+        snowStyleCount += 1
+    } else if rider is SnowRider {
+        snowRiderCount += 1
+        
+    }
+}
+
+print(snowRiderCount)
+print(snowStyleCount)
+
+
+//создали массив и положили туда инстансы обеих класссов, с помощью цикла прошлись по константе и подсчитали кол-во инстансов того или иного класса
 
